@@ -1,0 +1,43 @@
+.text {
+  float: left;
+  overflow: hidden;
+  padding-left: 2rem;
+}
+.text .box {
+  overflow: hidden;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  background: rgba(88, 88, 88, 0.3);
+}
+.text .box img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin-right: 1rem;
+}
+.text .box .describe {
+  float: left;
+  max-height: 100px;
+  overflow: hidden;
+}
+.text .box .describe .tag {
+  float: left;
+  color: #fff;
+  font-weight: bold;
+  background: rgba(255, 40, 40, 0.7);
+  padding: 0.2rem 0.3rem;
+  margin-bottom: 0.2rem;
+  margin-right: 0.8rem;
+}
+.text .box .describe .info {
+  clear: left;
+  color: gray;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+}
+.text .box .describe .subText {
+  max-width: 500px;
+  word-break: break-all;
+}
