@@ -126,7 +126,7 @@ var new_page=function(data){//---新页面打开
         }
         else if(keyName.substr(0,4)=="code"){
             var code=createDOM(text,'code');
-            code.innerText=data[keyName];
+            code.innerHTML=data[keyName];
         }
     }
 
