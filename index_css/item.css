@@ -4,6 +4,7 @@
   padding-left: 2rem;
 }
 .text .box {
+  min-width: 650px;
   overflow: hidden;
   margin-bottom: 1rem;
   padding: 0.5rem;

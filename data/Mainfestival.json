@@ -1,5 +1,1 @@
-var data={
-	"android":[{"intent":"url"},{"button":"url"},{"adapter":"url"}],
-	"java":[{"import":"url"},{"字符串":"url"}],
-	"web":[{"html":"url"},{"css":"url"},{"localstorage的用法":"localstorage的用法"}]
-}
+{"android":[{"onclick listenner":1472441480809}],"java":[{"class":1472441205386}],"web":[]}

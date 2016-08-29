@@ -7,11 +7,17 @@
   text-align: center;
   background: rgba(100, 100, 100, 0.3);
 }
-#text span {
+#text>span {
   text-align: left;
   width: 100%;
   display: block;
   color: gray;
+}
+#text>span>span{
+  text-indent: 2rem;
+  color: #f66;
+  display: inline-block;
+  font-weight: bold;
 }
 #text img {
   max-width: 660px;
@@ -22,12 +28,14 @@
   text-align: left;
   text-indent: 2rem;
   word-break: break-all;
+  margin-bottom: 1rem;
 }
 #text code {
   font-family: 微软雅黑;
   display: block;
   color: #fff;
-  padding: 2rem 20px;
+  padding: 1rem 20px 1rem 2rem;
+  margin-bottom: 1rem;
   text-align: left;
   overflow: hidden;
   background: #333;
