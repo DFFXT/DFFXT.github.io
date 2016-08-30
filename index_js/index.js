@@ -47,7 +47,9 @@ var toggle=function(){//----点击隐藏与显示
     }
 }
 
-
+if(page.indexOf('?')>0){//-----提前加载css
+    type.href="index_css/describe.css";
+}
 
 var getClass=function(){//----获取列表
     
@@ -141,7 +143,10 @@ if(page.indexOf("?")<0){
     getText();
 }
 else{
-    var addr="data/"+page.substr(page.indexOf("?")+1)+".json";
-    type.href="index_css/describe.css";
-    new_page(ajax(addr));
+    var addr;
+    setTimeout(function(){
+        addr="data/"+page.substr(page.indexOf("?")+1)+".json";
+        new_page(ajax(addr));
+    },10);
+    
 }
