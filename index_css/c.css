@@ -69,10 +69,12 @@ body {
 }
 .main_body .item ul {
   overflow: hidden;
+  font-family: 微软雅黑;
 }
 .main_body .item li {
   text-indent: 2rem;
-  padding: 0.2rem 0;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed gray;
 }
 .main_body .item li:hover {
   background: rgba(123, 223, 123, 0.5);
@@ -82,9 +84,7 @@ body {
   text-decoration: none;
   display: block;
 }
-.item ul li:nth-child(even){
-  background: rgba(103,103,223,0.4);
-}
+
 .main_body .item ul li:nth-child(1) {
   color: #000;
   font-weight: bold;
@@ -94,7 +94,6 @@ body {
   border-bottom: 1px gray solid;
 }
 .main_body .item ul li:last-child {
-  padding-bottom: 1rem;
 }
 
 #foot{

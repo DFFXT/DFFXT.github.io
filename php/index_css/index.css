@@ -1,0 +1,74 @@
+
+.item ul li:last-child{
+	background: #fff;
+}
+
+#meun{
+	overflow: hidden;
+	position: fixed;
+	top: 50px;
+	right: 50px;
+	z-index: 999;
+	background: #eee;
+	padding: 1rem;
+}
+#meun li{
+	padding: 0.4rem 1rem;
+	cursor: default;
+}
+#meun li:hover{
+	background: rgba(202,202,202,.4);
+	font-family: 微软雅黑;
+}
+#drag{
+	display: none;
+	width: 700px;
+	left: 400px;
+	top: 300px;
+	position: fixed;
+	overflow: hidden;
+	z-index: 998;
+}
+#textarea_div{
+	width: 100%;
+	height: 0px;
+	padding-top: 40px;
+	background: rgba(200,200,200,.9);
+	cursor: pointer;
+
+}
+#textarea{
+	outline: none;
+	position: fixed;
+	font-weight: bold;
+	width: 100%;
+	height: 100px;
+	max-width: 700px;
+	font-size: 1.2rem;
+	background: rgba(230,230,230,.9);
+	box-sizing:border-box;  
+	-moz-box-sizing:border-box; /* Firefox */  
+	-webkit-box-sizing:border-box; /* Safari */  
+	word-break:break-all;
+	border:0.2rem gray solid;
+	border-bottom: 0.1rem gray solid;
+}
+
+
+
+/*						*/
+#item_info{
+	padding: 0.2rem 0.5rem;
+	background: gray;
+	position: absolute;
+	z-index: 100;
+	border: 1px red solid;
+}
+#item_info>li{
+	padding: 0.4rem 1rem;
+	cursor: default;
+}
+#item_info>li:hover{
+	background: #eee;
+}
+

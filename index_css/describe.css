@@ -25,12 +25,14 @@
   margin: 1rem auto;
 }
 #text .subText {
+  line-height: 1.5rem;
   text-align: left;
   text-indent: 2rem;
   word-break: break-all;
   margin-bottom: 1rem;
 }
 #text code {
+  line-height: 2rem;
   font-family: 微软雅黑;
   display: block;
   color: #fff;
