@@ -1,0 +1,1 @@
+{"tag":"java","root":"1472450723316/","file_name":1472450723316,"title":"java保留小数精确的多少位","date":"2016-08-29T06:05:23.316Z","text_1":"java保留小数","code_2":"DecimalFormat&nbsptype&nbsp=&nbspnew&nbspDecimalFormat(\"0.000\");//-----格式化<br/>Double&nbsptype.format(value);"}

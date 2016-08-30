@@ -2,6 +2,7 @@ var item=document.getElementById("item");
 var text=document.getElementById("text");
 var page_css=document.getElementById("type");
 var title=document.getElementById("title");
+var position=document.getElementById("position");
 var page=window.location.href;
 //------------ajax
 if(window.XMLHttpRequest){
@@ -103,6 +104,7 @@ var getText=function(){//----默认页面
         var ul_in_item=item.getElementsByTagName('ul');
         for(var i=0; i<ul_in_item.length;i++){
             var this_url=ul_in_item[i].lastChild.lastChild.href;
+            if(this_url==undefined) break;
             this_url=this_url.substr(this_url.indexOf('?')+1);
             find_last_data(this_url);
 
@@ -116,6 +118,7 @@ var new_page=function(data){//---新页面打开
     span.innerText=data.date;
     var span=createDOM(span,'span');
     span.innerText=" ["+data.tag+"]";
+    position.getElementsByTagName('a')[1].innerText=' > ['+data.tag+']:'+data.title;
     for(var keyName in data){
         if(keyName.substr(0,3)=="img"){
             var img=createDOM(text,'img',{"src":"data/"+data.root+data[keyName]});

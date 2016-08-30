@@ -39,4 +39,5 @@
   text-align: left;
   overflow: hidden;
   background: #333;
+  word-break: break-all;
 }
