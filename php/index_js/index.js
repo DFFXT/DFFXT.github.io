@@ -116,6 +116,7 @@ var getText=function(){//----默认页面
         for(var i=0; i<ul_in_item.length;i++){
             var li=ul_in_item[i].getElementsByTagName("li");
             var this_url=li[li.length-2].lastChild.href;
+           if(this_url==undefined) break;
             this_url=this_url.substr(this_url.indexOf('?')+1);
 
             find_last_data(this_url);

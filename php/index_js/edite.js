@@ -23,6 +23,8 @@ var config={
 			color="black";
 		}
 		textarea.style.color=color;
+		textarea.value='';
+		textarea.focus();
 	}
 }
 
@@ -57,7 +59,7 @@ var item_function=function(pos){//----编辑选项
 		xml.open("POST","json_save.php",false);
 		xml.send(updata);
 		if(xml.responseText=='1'){
-			getClass();
+			window.location.href='index.php?'+NewData.file_name;
 		}
 		else{
 			alert(xml.responseText);
@@ -150,7 +152,10 @@ textarea_div.addEventListener("dblclick",function(){//---双击保存
 
 	}
 	new_text.innerHTML=textarea_tmp;
-	new_text.setAttribute("onmousedown","block_del()");
+	new_text.setAttribute("onmousedown","block_del('del')");
+	new_text.addEventListener('dblclick',function(){
+                block_del('rewrite');
+            });
 	drag.style.cssText="display:none";
 });
 onmouseup=function(){
@@ -204,8 +209,7 @@ var item_info_f=function(pos){//-----功能
 		xml.open('GET','json_del.php?file_name='+aim+"&title="+aim_title,false);
 		xml.send(null);
 		if(xml.responseText=='1'){
-
-			getClass();
+			window.location.href='index.php';
 		}
 		else if(xml.responseText=='0'){
 			alert('文件不存在');
@@ -222,7 +226,6 @@ var item_info_f=function(pos){//-----功能
 //-----------------------------------------删除block or修改
 var block_del=function(val){
 	if(event.button==0&&val=='rewrite'){
-		textarea.value=event.target.innerText;
 		config.edite_target=event.target;
 		var sub_attr=event.target.getAttribute('attr').substr(0,3);
 		if(sub_attr=='cod'){
@@ -232,6 +235,7 @@ var block_del=function(val){
 			config.edite_statu='textEdite';
 		}
 		config.editebox();
+		textarea.value=event.target.innerText;
 	}
 	else if(event.button==2){
 		event.target.style.background="red";
