@@ -54,7 +54,6 @@ var item_function=function(pos){//----编辑选项
 	}
 	else if(pos==4){//-----保存数据
 		var updata=new FormData();
-		//NewData.img="ssss";
 		updata.append("json",JSON.stringify(NewData));
 		xml.open("POST","json_save.php",false);
 		xml.send(updata);
@@ -123,6 +122,7 @@ textarea_div.addEventListener("dblclick",function(){//---双击保存
 	img_id++;
 	textarea_tmp=textarea.value;
 	textarea_tmp=textarea_tmp.replace(/&/g,"&amp");//---正则替换
+	textarea_tmp=textarea_tmp.replace(/\t/g,"&nbsp&nbsp&nbsp&nbsp");
 	textarea_tmp=textarea_tmp.replace(/</g,"&lt");
 	textarea_tmp=textarea_tmp.replace(/>/g,"&gt");
 	textarea_tmp=textarea_tmp.replace(/\n/g,"<br/>");
@@ -195,31 +195,41 @@ item_info.addEventListener('mouseout',function(){
 	config.this_target.parentNode.style.background="";
 });
 var item_info_f=function(pos){//-----功能
-	if(pos==0){
-		var addr="../data/"+page.substr(page.indexOf("?")+1)+".json";
-		eval(ajax(addr));
-		NewData=data;
+	if(pos==0){//-----修改文章名
+		var name;
+		var oldname=config.this_target.innerText;
+		if((name=prompt("输入新名称:",oldname))){
+			NewData.title=name;
+			var formdata=new FormData();
+			formdata.append("json",JSON.stringify(NewData));
+			formdata.append("oldtitle",oldname);
+			xml.open("POST","rename.php",false);
+			xml.send(formdata);
+			if(xml.responseText==''){
+				config.this_target.innerText=name;
+			}
+			else alert("未知错误"+xml.responseText);
+		}
 
 	}
-	else if(pos==1){
+	else if(pos==1){//----删除文件
 
 		var aim=config.this_target.href.substr(config.this_target.href.indexOf('?')+1);
 		var aim_title=config.this_target.innerText;
 		if(!confirm("是否删除文件 "+aim_title)) return 0;
 		xml.open('GET','json_del.php?file_name='+aim+"&title="+aim_title,false);
 		xml.send(null);
-		if(xml.responseText=='1'){
+		if(xml.responseText=='1'){//---删除成功
 			window.location.href='index.php';
 		}
 		else if(xml.responseText=='0'){
 			alert('文件不存在');
-
 		}
 		else{
 			alert('未知错误\n'+xml.responseText);
 		}
 	}
-	else if(pos==2){
+	else if(pos==2){//---关闭
 		item_info.style.display='none';
 	}
 }

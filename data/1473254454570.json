@@ -1,0 +1,1 @@
+{"tag":"java","root":"1473254454570/","file_name":1473254454570,"title":"java 字符数组声明，int数组声明","date":"2016-09-07T13:20:54.572Z","text_1":"java&nbsp字符数组和int数组声明","code_2":"char[]&nbspch=new&nbspchar[size];//----是中括号size可以是变量<br/>char[]&nbspch=new&nbspchar[]{'1','2'};//----如果赋值就不能有size<br/>int[]&nbsparr=new&nbspint[10]<br/>String&nbspstr=new&nbspString[10];"}

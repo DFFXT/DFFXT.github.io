@@ -9,6 +9,7 @@ $json=json_decode($_POST['json']);
 $tag=$json->tag;
 $file_name=$json->file_name;
 $title=$json->title;
+
 $exists='false';
 if(file_exists('../data/'.$file_name.'.json')){//--文件存在就不用注册
 	$exists='true';
@@ -17,7 +18,7 @@ $f=fopen("../data/".$file_name.".json", "w");
 fwrite($f, $_POST["json"]);
 fclose($f);
 
-if($exists=='true'){
+if($exists=='true'){//---成功存储 但不用再注册
 	exit("1");
 }
 

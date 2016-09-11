@@ -35,7 +35,7 @@
 	</div>
 	
 	<ul id="item_info">
-		<li>修改</li>
+		<li>改名</li>
 		<li>删除</li>
 		<li>关闭</li>
 	</ul>

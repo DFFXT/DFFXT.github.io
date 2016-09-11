@@ -59,11 +59,11 @@ var getClass=function(){//----获取列表
 
         li.addEventListener("click",toggle);
         li.innerText=keyName;
-        for(var i=0;i<data[keyName].length;i++){
+        for(var i=0;i<data[keyName].length;i++){//----给每一项赋予a标签
             for(var subKeyName in data[keyName][i]){
                 var li=createDOM(ul,"li",'');
                 var a =createDOM(li,'a',{"href":"index.php?"+data[keyName][i][subKeyName]});
-                a.addEventListener('mouseover',function(){
+                a.addEventListener('mouseover',function(){//----每一个a标签添加事件监听
                     
                     config.this_target=event.target;
                     item_info.style.display="block";
