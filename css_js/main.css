@@ -1,5 +1,6 @@
 *{
 	padding: 0;margin: 0;margin: 0;
+	list-style: none;
 }
 #canvas{
 	border: 1px red solid;
@@ -16,6 +17,15 @@ td{
 	padding: 0.2rem 0.5rem;
 	border: 1px solid red;
 	color: red;
+}
+#ul_font{
+	position: absolute;
+	text-align: center;
+	display: none;
+}
+#ul_font>li{
+	text-align: center;
+	border: 1px blue solid;
 }
 #color{
 	width: 400px;
