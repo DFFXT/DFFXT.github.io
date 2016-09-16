@@ -1,0 +1,29 @@
+*{
+	padding: 0;margin: 0;margin: 0;
+}
+#canvas{
+	border: 1px red solid;
+	float: left;
+}
+#canvas_tmp{
+	display: none;
+}
+#table{
+	float: left;
+	clear: left;
+}
+td{
+	padding: 0.2rem 0.5rem;
+	border: 1px solid red;
+	color: red;
+}
+#color{
+	width: 400px;
+	height: 40px;
+	border: 1px solid red;
+	clear: left;
+	float: left;
+}
+#color_parent{
+	padding: 0;
+}
