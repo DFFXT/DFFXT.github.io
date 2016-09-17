@@ -4,6 +4,8 @@
 }
 #canvas{
 	border: 1px red solid;
+	border-left: none;
+	border-right: none;
 	float: left;
 }
 #canvas_tmp{
@@ -28,14 +30,16 @@ td{
 	display: none;
 }
 .ul_font>li{
-	height: 1.8rem;
-	line-height: 1.8rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
 	text-align: center;
 	border: 1px blue solid;
 	background: #fff;
 }
 #color{
 	border: 1px solid red;
+	border-left: none;
+	border-right: none;
 	clear: left;
 	float: left;
 }

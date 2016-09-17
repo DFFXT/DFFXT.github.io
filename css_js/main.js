@@ -14,7 +14,6 @@ canvas_View.addEventListener('touchstart',function(){//---把开始触摸点定�
 		drawTable.getStarPosition(2);	
 	}
 	else if(config.type='rect'){
-		config.img_tmp.src=canvas_View.toDataURL();
 		drawTable.getStarPosition(0);
 	}
 });
@@ -38,6 +37,8 @@ canvas_View.addEventListener('touchend',function(){//----写入结束，保存�
 	if(config.type=='rect'){
 		drawTable.getPosition();
 		drawTable.rect();
+		config.img_tmp.src=canvas_View.toDataURL();//-写入结束获取缓存图
+		//---开始才获取有可能会有卡顿现象
 	}
 	
 	drawTable.createImg();
@@ -172,6 +173,7 @@ var operate = function(){//----操作函数集合
 			canvas.clearRect(0,0,config.size[0],config.size[1]);
 			config.pointer=-1;
 			drawTable.createImg();
+			config.img_tmp.src=canvas_View.toDataURL();//---清除后获取新的缓存图
 		}
 	}
 	this.cure=function(){//---回复上一步
