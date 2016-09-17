@@ -2,28 +2,11 @@
 canvas.lineWidth=int;
 canvas.rect()
 canvas.fillRect()
+window.onorientationchange
  */
-var canvas_View=document.getElementById('canvas');
-var canvas_tmp_View=document.getElementById('canvas_tmp');
-var color_View=document.getElementById('color');
-var lineW=document.getElementById('lineWidth');
-	var ul_font=document.getElementById('ul_font');
-var line=document.getElementById('line');
-var rect=document.getElementById('rect');
-var clear=document.getElementById('clear');
-var cure=document.getElementById('cure');
-var download=document.getElementById('download');
+
 var position=[0,0,0,0];//---位置信息
-var config={
-	'size':[400,300],
-	'type':'line',//---默认操作
-	'lineWidth':1,//----默认画笔粗细
-	'color':'rgba(0,0,0,1)',//---默认颜色
-	'stage':[],//----保存操作步骤
-	'pointer':-1,//---当前指针位置
-	'cure_len':10,//---可恢复次数
-	'img_tmp':new Image()//---图片缓存【用于恢复和保存矩形，圆覆盖的中心区域】
-}
+
 
 //-------------------------------------------功能绑定区
 canvas_View.addEventListener('touchstart',function(){//---把开始触摸点定为起点
@@ -102,7 +85,27 @@ cure.addEventListener('click',function(){//----回复
 });
 download.addEventListener('click',function(){//----下载【pc】
 	drawTable.download();
-})
+});
+opacity.addEventListener('mouseover',function(){
+	ul_opacity.style.display='block';
+});
+	ul_opacity.getElementsByTagName('li')[0].addEventListener('click',function(){
+		if(canvas.globalAlpha>0){
+			canvas.globalAlpha-=0.05;
+			ul_opacity.getElementsByTagName('li')[1].innerText=(canvas.globalAlpha+'').substr(0,4);
+		}
+	});
+	ul_opacity.getElementsByTagName('li')[1].addEventListener('click',function(){
+		ul_opacity.style.display='none';
+	});
+	ul_opacity.getElementsByTagName('li')[2].addEventListener('click',function(){
+		if(canvas.globalAlpha<1){
+			canvas.globalAlpha+=0.05;
+			ul_opacity.getElementsByTagName('li')[1].innerText=(canvas.globalAlpha+'').substr(0,4);
+		}
+	});
+
+
 //-----------------------------------------------------------------
 var operate = function(){//----操作函数集合
 	canvas = canvas_View.getContext('2d');//---init
@@ -143,7 +146,7 @@ var operate = function(){//----操作函数集合
 	}
 	this.getColor=function(){//---获取点击处的颜色[rgba模式,a/255为可用a]
 		var offsetT=color_View.offsetTop;
-		var color=color_c.getImageData(position[2],position[3]-303,1,1).data;
+		var color=color_c.getImageData(position[2],position[3]-config.size[1]-3,1,1).data;
 		cure.style.background="rgba("+color[0]+','+color[1]+','+color[2]+','+color[3]/255+")";
 		config.color="rgba("+color[0]+','+color[1]+','+color[2]+','+color[3]/255+")";
 		
@@ -208,4 +211,5 @@ var operate = function(){//----操作函数集合
 {//---所有初始化操作
 	drawTable = new operate();//---初始化功能函数
 	drawTable.createImg();//---第一个图片保存
+	canvas.lineWidth=3;
 }

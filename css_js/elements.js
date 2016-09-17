@@ -1,0 +1,12 @@
+var canvas_View=document.getElementById('canvas');
+var canvas_tmp_View=document.getElementById('canvas_tmp');
+var color_View=document.getElementById('color');
+var lineW=document.getElementById('lineWidth');
+	var ul_font=document.getElementById('ul_font');
+var line=document.getElementById('line');
+var rect=document.getElementById('rect');
+var clear=document.getElementById('clear');
+var cure=document.getElementById('cure');
+var download=document.getElementById('download');
+var opacity=document.getElementById('opacity');
+	var ul_opacity=document.getElementById('ul_opacity');
