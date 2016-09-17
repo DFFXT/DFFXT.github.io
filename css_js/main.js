@@ -92,7 +92,7 @@ opacity.addEventListener('mouseover',function(){
 });
 	ul_opacity.getElementsByTagName('li')[0].addEventListener('click',function(){
 		if(canvas.globalAlpha>0){
-			canvas.globalAlpha-=0.05;
+			canvas.globalAlpha-=0.1;
 			ul_opacity.getElementsByTagName('li')[1].innerText=(canvas.globalAlpha+'').substr(0,4);
 		}
 	});
@@ -101,7 +101,7 @@ opacity.addEventListener('mouseover',function(){
 	});
 	ul_opacity.getElementsByTagName('li')[2].addEventListener('click',function(){
 		if(canvas.globalAlpha<1){
-			canvas.globalAlpha+=0.05;
+			canvas.globalAlpha+=0.1;
 			ul_opacity.getElementsByTagName('li')[1].innerText=(canvas.globalAlpha+'').substr(0,4);
 		}
 	});
