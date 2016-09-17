@@ -40,14 +40,14 @@ var config={
 	ul_opacity.style.marginTop='-'+(rPx(ul_font_styleList['height'])*4+6)+'px';
 	
 	var td=table.getElementsByTagName('td');
-	for(var i=0;i<td.length;i++){//---点击变色
+	/*for(var i=0;i<td.length;i++){//---点击变色
 		td[i].addEventListener('click',function(){
 			for(var j=0;j<td.length;j++){
 				td[j].style.background="#fff";
 			}
 			event.target.style.background="gray";
 		});
-	}
+	}*/
 	window.onorientationchange=function(){
 		var w=screen.availWidth;
 		
