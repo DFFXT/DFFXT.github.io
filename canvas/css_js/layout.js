@@ -14,7 +14,7 @@ var config={///---各种配置
 	'opacity':1,
 	'type':'pen',//---默认画笔操作
 	'rangeType':'',//--range使用者
-	'lineWidth':[3,20],//----默认画笔粗细/最大画笔粗细
+	'lineWidth':[3,40],//----默认画笔粗细/最大画笔粗细
 	'fontSize':16,//--默认字体大小
 	'maxFontSize':100,//--最大字体
 	'radius':2,//---画圆的半径
@@ -33,6 +33,17 @@ if(document.cookie!=''){
 	}
 	config.size[0]=width;
 	config.size[1]=height;
+}
+function span_layout(){//---范围选择框布局
+	rangeBox.style.display=rangeBox.style.display!='block'?'block':'none';
+	var span = rangeBox.getElementsByTagName('span');
+	for(var i=0;i<span.length;i++){
+		span[i].style.height=range.clientHeight+'px';
+		span[i].style.LineHeight=range.clientHeight+'px';
+		if(i%2!=0){
+			span[i].style.float='right';
+		}
+	}
 }
 function rPx(originData,type){//---清除单位，并返回int
 	if(type=='top'){
@@ -66,7 +77,8 @@ function rPx(originData,type){//---清除单位，并返回int
 	color_View.setAttribute('width',config.size[0]+'px');
 	color_View.setAttribute('height',config.color_heigth);
 		
-	var td=table.getElementsByTagName('td');
+	
+
 
 	window.onorientationchange=function(){
 		var w=screen.availWidth;	

@@ -16,5 +16,7 @@ var coordinate=document.getElementById('coordinate');
 			var close_equation=document.getElementById('close_equation');
 			var reset=document.getElementById('reset');
 var character=document.getElementById('character');
-var range=document.getElementById('range');
-var rangeVal=document.getElementById('rangeVal');
+var rangeBox=document.getElementById('rangeBox');
+	var rangeBox_drag=document.getElementById('rangeBox_drag'); 
+	var range=document.getElementById('range');
+

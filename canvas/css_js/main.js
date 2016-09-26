@@ -76,8 +76,8 @@ color_View.addEventListener('touchmove',function(){//---获取移动坐标，获
 	event.preventDefault();
 });
 lineW.addEventListener('click',function(){//---划线粗细显示选项
-	rangeBox.style.display=rangeBox.style.display!='block'?'block':'none';
-	range.value=rangeVal.innerText=canvas.lineWidth;
+	span_layout();
+	range.value=range.nextElementSibling.innerText=canvas.lineWidth;
 	range.max=config.lineWidth[1];//--设置最大值
 	config.rangeType='lineWidth';
 });
@@ -97,9 +97,9 @@ download.addEventListener('click',function(){//----下载【pc】
 	drawTable.download();
 });
 opacity.addEventListener('click',function(){
-	rangeBox.style.display=rangeBox.style.display!='block'?'block':'none';
+	span_layout();
 	range.max=100;//--设置最大值
-	range.value=(rangeVal.innerText=config.opacity)*100;//init
+	range.value=(range.nextElementSibling.innerText=config.opacity)*100;//init
 	config.rangeType='opacity';
 });
 
@@ -151,8 +151,8 @@ character.addEventListener('click',function(){//--弹出字体写入框
 		drawTable.fillText(inputText.value,x,y);
 	});
 	rect_box.addEventListener('click',function(){//--弹出字体大小选择框
-		rangeBox.style.display=rangeBox.style.display!='block'?'block':'none';
-		rangeVal.innerText=(range.value=config.fontSize)+'px';
+		span_layout();
+		range.nextElementSibling.innerText=(range.value=config.fontSize)+'px';
 		range.max=config.maxFontSize//--设置最大值
 		config.rangeType='font';
 	});
@@ -172,31 +172,29 @@ character.addEventListener('click',function(){//--弹出字体写入框
 });
 
 
-
-rangeVal.addEventListener('touchstart',function(){
+rangeBox_drag.addEventListener('click',function(){
+	rangeBox.style.display='none';
+});
+rangeBox_drag.addEventListener('touchstart',function(){
 	drawTable.getStarPosition(2);
 });
-rangeVal.addEventListener('touchmove',function(){event.preventDefault();
+rangeBox_drag.addEventListener('touchmove',function(){event.preventDefault();
 	position[0]=position[2];
 	position[1]=position[3];
 	drawTable.getPosition();
 	drawTable.move(rangeBox);
 });
-rangeVal.addEventListener('touchend',function(){
-	drawTable.getStarPosition[2];
-});
 range.addEventListener('touchmove',function(){
 	if(config.rangeType=='opacity'){
-		rangeVal.innerText=range.value/100;
+		range.nextElementSibling.innerText=range.value/100;
 	}else if(config.rangeType=='font'){
-		rangeVal.innerText=rect_box.getElementsByTagName('input')[0].style.fontSize=range.value+'px';
+		range.nextElementSibling.innerText=rect_box.getElementsByTagName('input')[0].style.fontSize=range.value+'px';
 	}
 	else{
-		rangeVal.innerText=range.value;
+		range.nextElementSibling.innerText=range.value;
 	}
 });
 range.addEventListener('touchend',function(){
-	rangeBox.style.display='none';
 	switch(config.rangeType){
 		case 'lineWidth':canvas.lineWidth=range.value;;break;
 		case 'opacity':config.opacity=range.value/100;break;
